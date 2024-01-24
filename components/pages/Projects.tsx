@@ -1,9 +1,9 @@
 
 
 
-const Projects =()=>{
+const Projects =({projectsSectionRef}:any)=>{
     return(
-        <div className="h-screen bg-red-400">
+        <div id="projectsSection" className="h-screen bg-red-400" ref={projectsSectionRef}>
             Projects
         </div>
     )

@@ -1,21 +1,14 @@
-import { Inter, Poppins } from "next/font/google";
-import Navbar from "./Layout/Navbar";
-import { useEffect, useState } from "react";
-import Projects from "@/components/pages/main/Projects";
-import HomePortifle from "@/components/pages/main/Home";
+import { Poppins } from "next/font/google";
+import Main from "@/components/pages/Main";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export default function Home() {
-
-  
-
   return (
     <main className={`main ${poppins.className}`}>
-      <Navbar />
-      <HomePortfolio />
+      <Main />
     </main>
   );
 }
