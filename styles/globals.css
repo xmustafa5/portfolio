@@ -25,3 +25,63 @@ body {
     text-wrap: balance;
   }
 }
+
+.header {
+  background: transparent; 
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease-in;
+}
+.navbarOnScrolling{
+  background:white
+}
+.nav{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 47px;
+}
+
+.nav button{
+  padding: 10px;
+  position: relative;
+}
+.nav .animation {
+  transition: all .5s ease 0s;
+  border-radius: 8px;
+  height: 100%;
+  z-index: 0;
+}
+
+.animation1 {
+ 
+  background-color: #1abc9c;
+}
+
+.animation2 {
+
+  background-color: #e74c3c;
+}
+
+.animation3 {
+
+  background-color: #26ff00;
+}
+
+
+.animation4 {
+
+  background-color: #9b59b6;
+}
+
+.animation5 {
+
+  background-color: #e67e22;
+}
+.animation6{
+
+  background-color: #e67e22;
+}
+
+
