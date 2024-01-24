@@ -26,7 +26,7 @@ body {
 }
 /* custom scrollbar */
 ::-webkit-scrollbar {
-  width: 12px; 
+  width: 12px;
 }
 ::-webkit-scrollbar-track {
   background: rgb(23, 23, 23);
@@ -51,16 +51,26 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.navbarOnScrolling {
-  
-}
+
 .nav {
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 47px;
 }
-
+.navbarOnScrolling{
+  background: #151414;
+  opacity: 0.9;
+}
+.navbarOnScrolling::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); 
+}
 .nav button {
   padding: 10px;
   position: relative;
@@ -96,7 +106,6 @@ body {
   transform: scale(1.1);
   background-image: url("../assets//images/background/backgroundHoverNavbarButton.png");
 }
-
 
 /* home section */
 .home {
@@ -166,32 +175,76 @@ body {
   background-color: var(--hoverMainColor);
 }
 /* projects section */
-.projects{
-  height: 100vh;
-  background-image: url('../assets//images/background/backgroundSections.png');
-  padding: 0px 34px;
-  
+.projects {
+  height: 100%;
+  background-image: url("../assets//images/background/backgroundSections.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0px 30px;
 }
-.projectContainer{
+
+.projectContainer {
   width: 100%;
   border-radius: 6px;
   display: flex;
-  background-color: azure;
-  margin-bottom: 10px;
+  background-image: url("../assets/images/background/Frame\ 7.png");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+ 
+  border-radius: 30px;
+  padding: 14px;
+  
 }
-.rightProject{
+.rightProject {
   display: flex;
   justify-content: center;
-  align-items:center ;
-  padding: 10px;
+  align-items: center;
+  height: 100%;
 }
-.imageProjectContainer{
-  width: 400px;
+.imageProjectContainer {
+  width: 350px;
 }
-.imageProject{
+.imageProject {
   width: 100%;
-  border-radius: 6px;
+  border-radius: 20px;
 }
-
-
-  
+.leftContainer{
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+}
+.leftProjectContainer {
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.leftProjectContainer h1{
+  font-size: 18px;
+  font-weight: 700;
+  padding-bottom: 6px;
+  color: white;
+}
+.leftProjectContainer p{
+  font-size: 15px;
+  color: white;
+  padding-bottom: 6px;
+}
+.containerButtonProject{
+  padding-top: 10px;
+}
+.containerTitleProject{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  color:white;
+}
+.containerTitleProject h1{
+  font-size:28px;
+  font-weight: 600;
+  padding-top: 80px;
+  padding-bottom: 10px;
+}
