@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -10,14 +10,13 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --mainColor: #ff4638;
+    --hoverMainColor: #ff3425;
   }
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 @layer utilities {
@@ -25,63 +24,174 @@ body {
     text-wrap: balance;
   }
 }
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px; 
+}
+::-webkit-scrollbar-track {
+  background: rgb(23, 23, 23);
+}
 
+::-webkit-scrollbar-thumb {
+  background: var(--mainColor);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hoverMainColor); /* Set the color of the thumb on hover */
+}
+
+/* navbar style */
 .header {
-  background: transparent; 
+  background: transparent;
   position: fixed;
   width: 100%;
   z-index: 1000;
   transition: all 0.3s ease-in;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-.navbarOnScrolling{
-  background:white
+.navbarOnScrolling {
+  
 }
-.nav{
+.nav {
   width: 100%;
   display: flex;
   justify-content: center;
   gap: 47px;
 }
 
-.nav button{
+.nav button {
   padding: 10px;
   position: relative;
+  font-size: 20px;
+  color: white;
 }
 .nav .animation {
-  transition: all .5s ease 0s;
+  transition: all 0.5s ease;
   border-radius: 8px;
   height: 100%;
   z-index: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .animation1 {
- 
-  background-color: #1abc9c;
+  transform: scale(1.1);
+  background-image: url("../assets//images/background/backgroundHoverNavbarButton.png");
 }
 
 .animation2 {
-
-  background-color: #e74c3c;
+  transform: scale(1.1);
+  background-image: url("../assets//images/background/backgroundHoverNavbarButton.png");
 }
 
 .animation3 {
-
-  background-color: #26ff00;
+  transform: scale(1.1);
+  background-image: url("../assets//images/background/backgroundHoverNavbarButton.png");
 }
-
 
 .animation4 {
-
-  background-color: #9b59b6;
-}
-
-.animation5 {
-
-  background-color: #e67e22;
-}
-.animation6{
-
-  background-color: #e67e22;
+  transform: scale(1.1);
+  background-image: url("../assets//images/background/backgroundHoverNavbarButton.png");
 }
 
 
+/* home section */
+.home {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../assets/images/background/homeBackground.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.RightHome {
+  width: 100%;
+  padding-left: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.titles {
+  margin-bottom: 10px;
+  color: white;
+}
+.titleName {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+.titleDeveloper {
+  color: var(--mainColor);
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.aboutMy {
+  max-width: 700px;
+}
+.aboutMy p {
+  font-size: 18;
+  color: white;
+  letter-spacing: 1.4px;
+}
+.leftHome {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.myImage {
+  width: 450px;
+}
+.containerDownloadCv {
+  display: flex;
+  justify-content: start;
+  padding-top: 20px;
+}
+.downloadCvButton {
+  background-color: var(--mainColor);
+  padding: 6px 8px;
+  color: white;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.downloadCvButton:hover {
+  background-color: var(--hoverMainColor);
+}
+/* projects section */
+.projects{
+  height: 100vh;
+  background-image: url('../assets//images/background/backgroundSections.png');
+  padding: 0px 34px;
+  
+}
+.projectContainer{
+  width: 100%;
+  border-radius: 6px;
+  display: flex;
+  background-color: azure;
+  margin-bottom: 10px;
+}
+.rightProject{
+  display: flex;
+  justify-content: center;
+  align-items:center ;
+  padding: 10px;
+}
+.imageProjectContainer{
+  width: 400px;
+}
+.imageProject{
+  width: 100%;
+  border-radius: 6px;
+}
+
+
+  
