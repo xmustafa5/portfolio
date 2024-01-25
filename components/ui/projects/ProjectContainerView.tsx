@@ -10,6 +10,7 @@ import Image from "next/image";
     <div className="projectContainer ">
         <div className="rightProject">
           <div className="imageProjectContainer">
+
             <Image src={image} alt="project Image" className="imageProject" />
           </div>
         </div>
