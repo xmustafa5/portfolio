@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -24,10 +25,12 @@ body {
     text-wrap: balance;
   }
 }
+
 /* custom scrollbar */
 ::-webkit-scrollbar {
   width: 12px;
 }
+
 ::-webkit-scrollbar-track {
   background: rgb(23, 23, 23);
 }
@@ -38,7 +41,8 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--hoverMainColor); /* Set the color of the thumb on hover */
+  background: var(--hoverMainColor);
+  /* Set the color of the thumb on hover */
 }
 
 /* navbar style */
@@ -58,10 +62,12 @@ body {
   justify-content: center;
   gap: 47px;
 }
-.navbarOnScrolling{
+
+.navbarOnScrolling {
   background: #151414;
   opacity: 0.9;
 }
+
 .navbarOnScrolling::before {
   content: "";
   position: absolute;
@@ -69,14 +75,16 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); 
+  background-color: rgba(0, 0, 0, 0.8);
 }
+
 .nav button {
   padding: 10px;
   position: relative;
   font-size: 20px;
   color: white;
 }
+
 .nav .animation {
   transition: all 0.5s ease;
   border-radius: 8px;
@@ -118,6 +126,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .RightHome {
   width: 100%;
   padding-left: 50px;
@@ -126,43 +135,52 @@ body {
   align-items: center;
   flex-direction: column;
 }
+
 .titles {
   margin-bottom: 10px;
   color: white;
 }
+
 .titleName {
   font-size: 34px;
   font-weight: 800;
   letter-spacing: 1px;
 }
+
 .titleDeveloper {
   color: var(--mainColor);
   font-size: 24px;
   font-weight: 700;
   letter-spacing: 1px;
 }
+
 .aboutMy {
   max-width: 700px;
 }
+
 .aboutMy p {
   font-size: 18;
   color: white;
   letter-spacing: 1.4px;
 }
+
 .leftHome {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .myImage {
-  width: 450px;
+  width: 60%;
 }
+
 .containerDownloadCv {
   display: flex;
   justify-content: start;
   padding-top: 20px;
 }
+
 .downloadCvButton {
   background-color: var(--mainColor);
   padding: 6px 8px;
@@ -171,9 +189,11 @@ body {
   font-size: 16px;
   font-weight: 500;
 }
+
 .downloadCvButton:hover {
   background-color: var(--hoverMainColor);
 }
+
 /* projects section */
 .projects {
   height: 100%;
@@ -182,69 +202,294 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   padding: 0px 30px;
+  position: relative;
+}
+
+.billProjects {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+
+  z-index: 20;
+}
+
+.billProjectsEmpty {
+  width: 200px;
+}
+
+.billProjectsWithNoiseContainer {
+  position: relative;
+  z-index: 0;
+}
+
+.billProjectsWithNoise {
+  position: absolute;
+  top: 20%;
+  right: 18%;
+  z-index: -20;
+}
+
+.billProjectWithNoise {
+  z-index: 20;
+  width: 280px;
 }
 
 .projectContainer {
   width: 100%;
   border-radius: 6px;
   display: flex;
-  background-image: url("../assets/images/background/Frame\ 7.png");
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: cover;
- 
+  background: rgba(138, 138, 138, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.4px);
+  -webkit-backdrop-filter: blur(3.4px);
+  border-top: 1px solid var(--mainColor);
+  border-right: 1px solid var(--mainColor);
+  border-left: 1px solid var(--mainColor);
   border-radius: 30px;
   padding: 14px;
-  
 }
+
 .rightProject {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
 }
+
 .imageProjectContainer {
   width: 350px;
 }
+
 .imageProject {
   width: 100%;
   border-radius: 20px;
 }
-.leftContainer{
+
+.leftContainer {
   padding-left: 18px;
   display: flex;
   flex-direction: column;
 }
+
 .leftProjectContainer {
   height: 100%;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
 }
-.leftProjectContainer h1{
+
+.leftProjectContainer h1 {
   font-size: 18px;
   font-weight: 700;
   padding-bottom: 6px;
   color: white;
 }
-.leftProjectContainer p{
+
+.leftProjectContainer p {
   font-size: 15px;
   color: white;
   padding-bottom: 6px;
 }
-.containerButtonProject{
+
+.containerButtonProject {
   padding-top: 10px;
 }
-.containerTitleProject{
+
+.containerTitleProject {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items:center;
-  color:white;
+  align-items: center;
+  color: white;
 }
-.containerTitleProject h1{
-  font-size:28px;
+
+.containerTitleProject h1 {
+  font-size: 28px;
   font-weight: 600;
   padding-top: 80px;
   padding-bottom: 10px;
 }
+
+/* skills */
+.Skills {
+  height: 100%;
+  background-image: url("../assets//images/background/backgroundSections.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.skillContainer {
+  height: 100%;
+  display: flex;
+  position: relative;
+  padding-top: 20px;
+}
+
+.iconSkill {
+  position: absolute;
+  bottom: 25%;
+}
+
+.titleOfSkills {
+  width: 250px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 11%;
+
+  background-image: url("../assets/images/background/backgroundSkills.png");
+  color: white;
+  border-radius: 10px;
+}
+
+.titleOfSkillsLong {
+  width: 250px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  padding-left: 24%;
+  align-items: center;
+  background-image: url("../assets/images/background/backgroundSkills.png");
+  color: white;
+  border-radius: 10px;
+}
+
+.skilltest {
+  padding: 17px;
+}
+
+.titleOfSkillsLong h2 {
+  font-size: 23px;
+  font-weight: 600px;
+  border-radius: 6px;
+  letter-spacing: 1.4px;
+}
+
+.titleOfSkills h2 {
+  font-size: 26px;
+  font-weight: 500px;
+  border-radius: 6px;
+  letter-spacing: 1.4px;
+}
+
+.contentSkills {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+}
+
+.ImageContainerSkills {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 5px;
+}
+
+.imageSkills {
+  width: 400px;
+  transform: scaleX(-1);
+}
+
+.tinySkills {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tinySkills h2 {
+  font-size: 24px;
+  color: white;
+  font-weight: 500;
+}
+
+.tinySkills p {
+  color: #6c6c6c;
+  font-size: 20px;
+}
+
+.containerContentSkills {
+  display: flex;
+  flex-direction: column;
+}
+
+.containerContentOneSkills {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: green;
+}
+
+/* contact section */
+.contact {
+  height: 100%;
+  background-image: url("../assets//images/background/backgroundSections.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.containerTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+}
+
+.containerTitle p {
+  font-size: 16px;
+  color: #7d7d7d;
+}
+
+.containerTitle h1 {
+  font-size: 28px;
+  font-weight: 600;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+.iconsSocialMedia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/*  */
+
+  @media only screen and (min-width: 111px) and (max-width: 370px) {}
+  @media only screen and (min-width: 370px) and (max-width: 570px) {}
+  @media only screen and (min-width: 570px) and (max-width: 770px) {}
+  @media only screen and (min-width: 770px) and (max-width: 992px) {}
+  @media only screen and (min-width: 992px) and (max-width: 1095px) {}
+  @media only screen and (min-width: 1700px) {
+    /* home-large-extra */
+    .titleName{
+      font-size: 42px;
+      font-weight: 900;
+    }
+    .titleDeveloper {
+      font-size: 30px;
+      font-weight: 800;
+    }
+    .aboutMy {
+      max-width: 900px;
+    }
+    .aboutMy p {
+      font-size: 24px;
+    }
+    
+  }

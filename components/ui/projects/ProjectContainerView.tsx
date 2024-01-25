@@ -1,6 +1,10 @@
+
 import Image from "next/image";
-import zaoStore from "@/assets/images/projects/AudioGuide.png";
-const ProjectContainer = ({ image, title, documenting, href }: any) => {
+
+
+
+
+ const ProjectContainerView = ({ image, title, documenting, href }: any) => {
   return (
     <div className="pb-6">
     <div className="projectContainer ">
@@ -27,7 +31,6 @@ const ProjectContainer = ({ image, title, documenting, href }: any) => {
         </div>
       </div>
       </div>
-  );
-};
-
-export default ProjectContainer;
+  )
+}
+export default ProjectContainerView
