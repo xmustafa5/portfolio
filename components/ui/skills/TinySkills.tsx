@@ -1,3 +1,7 @@
+interface IProps {
+  title :string;
+   content:string;
+}
 const TinySkills = ({ title, content }: any) => {
   return (
     <div className="tinySkills">

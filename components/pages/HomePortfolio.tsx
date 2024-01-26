@@ -1,25 +1,13 @@
 import { Sections } from "@/enums/global";
 import Image from "next/image";
 import myImage from "@/assets/images/myImage.png";
-import {
-  motion,
-  AnimatePresence,
-  useAnimation,
-  useInView,
-} from "framer-motion";
-import { useEffect, useRef } from "react";
-const HomePortfolio = ({ homeSectionRef }: any) => {
-  const ref = useRef<null>(null);
-  const isInView = useInView(homeSectionRef, { once: false });
-  const mainControls = useAnimation();
-  const SlideControls = useAnimation();
-  useEffect(() => {
-    if (isInView) {
-      mainControls.start("visible");
-      SlideControls.start("visible");
-    }
-  }, [isInView]);
+import { motion } from "framer-motion";
 
+interface IProps {
+  homeSectionRef?: React.RefObject<HTMLDivElement>;
+}
+
+const HomePortfolio = ({ homeSectionRef }: IProps) => {
   return (
     <section className="home" id={Sections.HOME_SECTION} ref={homeSectionRef}>
       <div className="RightHome">
@@ -32,7 +20,7 @@ const HomePortfolio = ({ homeSectionRef }: any) => {
                   visible: { opacity: 1, y: 0 },
                 }}
                 initial="hidden"
-                animate={mainControls}
+                animate="visible"
                 transition={{ duration: 0.5, delay: 0.25 }}
                 className="titleName"
               >
@@ -44,7 +32,7 @@ const HomePortfolio = ({ homeSectionRef }: any) => {
                   visible: { opacity: 1, y: 0 },
                 }}
                 initial="hidden"
-                animate={mainControls}
+                animate="visible"
                 transition={{ duration: 0.5, delay: 0.425 }}
                 className="titleDeveloper"
               >

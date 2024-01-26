@@ -8,9 +8,8 @@ type ObjectType = {
 };
 
 function useDeviceInfo() {
-  // Change the value as per your config
   const SCREEN_SIZES = {
-    MOBILE_WIDTH: 567, // For mobile devices
+    MOBILE_WIDTH: 567,
   };
   const { MOBILE_WIDTH } = SCREEN_SIZES;
 
@@ -25,7 +24,6 @@ function useDeviceInfo() {
     const width = document.documentElement.clientWidth || window.innerWidth;
     const height = document.documentElement.clientHeight || window.innerHeight;
 
-    // Only update the state if the width or height has changed
     if (width !== object.width || height !== object.height) {
       setObject({
         width,

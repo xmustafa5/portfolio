@@ -1,13 +1,12 @@
 import { Sections } from "@/enums/global";
 import ButtonNavbar from "../ui/buttonNavbar";
-
-const Navbar = ({ navbarScrolling, activeAnimation, handleClick }: any) => {
-  const scrollToSection = (sectionId: any) => {
-    const targetSection = document.getElementById(sectionId);
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+import { scrollToSection } from "@/utils/functions/scrollToSection";
+interface IProps {
+  navbarScrolling: boolean;
+  activeAnimation?: string;
+  handleClick:(animation:string)=>void;
+}
+const Navbar = ({ navbarScrolling, activeAnimation, handleClick }: IProps) => {
 
   return (
     <header className={`header ${navbarScrolling ? "navbarOnScrolling" : ""}`}>
@@ -44,7 +43,6 @@ const Navbar = ({ navbarScrolling, activeAnimation, handleClick }: any) => {
           title="Contact"
           activeAnimation={activeAnimation}
         />
-
       </nav>
     </header>
   );

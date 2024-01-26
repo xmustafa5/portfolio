@@ -1,3 +1,7 @@
+interface IProps {
+  title:string,
+  subTitle:string,
+}
 const TitleSection = ({ title, subTitle }: any) => {
   return (
     <div className={subTitle ? "containerTitle" : "containerTitleProject"}>

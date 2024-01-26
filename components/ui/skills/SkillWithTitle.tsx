@@ -1,31 +1,27 @@
 import Image from "next/image";
-import { motion, useAnimation, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion  } from "framer-motion";
+import useTargetAnimationOnScrolling from "@/hooks/useTargetAnimationOnScrolling";
+interface IProps {
+  icon:any,
+  title:string,
+  id:number,
+}
+const SkillWithTitle = ({ title, icon ,id}: IProps) => {
+  const { ref,mainControls,SlideControls} = useTargetAnimationOnScrolling()
 
-const SkillWithTitle = ({ title, icon ,id}: any) => {
-  const ref = useRef<null>(null);
-  const isInView = useInView(ref, { once: false });
-  const mainControls = useAnimation();
-  const SlideControls = useAnimation();
-  useEffect(() => {
-    if (isInView) {
-      mainControls.start("visible");
-      SlideControls.start("visible");
-    }
-  }, [isInView]);
   return (
     <motion.div
     key={id}
         variants={{
-          hidden: { opacity: 0, x: 10 },
+          hidden: { opacity: 0,  x: id % 2 !== 0 ? 10 : -10 },
           visible: { opacity: 1, x: 0 },
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: 0.5, delay: id * 0.25 }}
+        transition={{ duration: 0.5, delay: id * 0.09 }}
         className="skillContainer"
       >
-        <div ref={ref} className="skilltest">
+        <div ref={ref} className="skilltest ">
         
         <div className="iconSkill">
           <Image
@@ -37,14 +33,28 @@ const SkillWithTitle = ({ title, icon ,id}: any) => {
           />
         </div>
         <div
-          className={
-            title === "Javascript" || title === "Typescript"
-              ? "titleOfSkillsLong"
-              : "titleOfSkills"
-          }
+          className={`
+          relative overflow-hidden
+           ${title === "Javascript" || title === "Typescript"
+              ? "titleOfSkillsLong "
+              : "titleOfSkills "
+            }
+          `}
         >
           <h2>{title}</h2>
+          <motion.div
+          variants={{
+            hidden: {left:"0"},
+            visible: {left:id % 2 !== 0 ? '-100%' : '100%'}
+          }}
+          initial='hidden'
+          animate={SlideControls}
+          transition={{duration:0.5,ease: "easeIn", delay:id *0.14}}
+          className="skillsContainerAnimation" 
+          >
+            </motion.div>
         </div>
+      
     </div>
       </motion.div>
   );

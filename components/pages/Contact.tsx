@@ -1,10 +1,16 @@
 import { Sections } from "@/enums/global";
 import TitleSection from "../ui/TitleSection";
-import { linkedIn, instagram, email as emailIcons } from "@/assets/svg/socialMedia";
-const Contact = ({ contactSectionRef }: any) => {
-  const email = "musmoh73@gmail.com";
-  const subject = "Hello";
-  const body = "I'm interested in your services. Please contact me.";
+import {
+  linkedIn,
+  instagram,
+  email as emailIcons,
+} from "@/assets/svg/socialMedia";
+
+interface IProps {
+  contactSectionRef?: React.RefObject<HTMLDivElement>;
+}
+
+const Contact = ({ contactSectionRef }: IProps) => {
 
   return (
     <div
@@ -30,7 +36,13 @@ const Contact = ({ contactSectionRef }: any) => {
         >
           {instagram}
         </a>
-        <a href={`mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`}>
+        <a
+          href={`mailto:musmoh73@gmail.com?subject=${encodeURIComponent(
+            "Hello"
+          )}&body=${encodeURIComponent(
+            "I'm interested in your services. Please contact me."
+          )}`}
+        >
           {emailIcons}
         </a>
       </div>
