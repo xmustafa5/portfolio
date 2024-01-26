@@ -1,39 +1,57 @@
 import { Sections } from "@/enums/global";
 import Image from "next/image";
 import myImage from "@/assets/images/myImage.png";
-import { motion, useAnimation, useInView } from "framer-motion";
+import {
+  motion,
+  AnimatePresence,
+  useAnimation,
+  useInView,
+} from "framer-motion";
 import { useEffect, useRef } from "react";
 const HomePortfolio = ({ homeSectionRef }: any) => {
   const ref = useRef<null>(null);
-  const isInView = useInView(ref, { once: true });
-  const mainControls = useAnimation()
+  const isInView = useInView(homeSectionRef, { once: false });
+  const mainControls = useAnimation();
+  const SlideControls = useAnimation();
   useEffect(() => {
-    if(isInView){
-      mainControls.start('visible')
+    if (isInView) {
+      mainControls.start("visible");
+      SlideControls.start("visible");
     }
   }, [isInView]);
+
   return (
-    <section
-      ref={ref}
-      className="home"
-      id={Sections.HOME_SECTION}
-      ref={homeSectionRef}
-    >
+    <section className="home" id={Sections.HOME_SECTION} ref={homeSectionRef}>
       <div className="RightHome">
-        <div className="containerRight">
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, y: 75 },
-              visible: { opacity: 1, y: 0 },
-            }}
-            initial="hidden"
-            animate={mainControls}
-            transition={{ duration: 0.5 , daylay:0.25 }}
-            className="titles"
-          >
-            <h1 className="titleName">Hi, I’m Mustafa Mohammed</h1>
-            <h3 className="titleDeveloper">front-end developer</h3>
-          </motion.div>
+        <div className="containerRight ">
+          <div className=" relative w-fit ">
+            <div className="titles">
+              <motion.h1
+                variants={{
+                  hidden: { opacity: 0, y: 10 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                initial="hidden"
+                animate={mainControls}
+                transition={{ duration: 0.5, delay: 0.25 }}
+                className="titleName"
+              >
+                Hi, I’m Mustafa Mohammed
+              </motion.h1>
+              <motion.h3
+                variants={{
+                  hidden: { opacity: 0, y: -10 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                initial="hidden"
+                animate={mainControls}
+                transition={{ duration: 0.5, delay: 0.425 }}
+                className="titleDeveloper"
+              >
+                front-end developer
+              </motion.h3>
+            </div>
+          </div>
           <div className="aboutMy">
             <p>
               Passionate about web development, I thrive on the opportunity to

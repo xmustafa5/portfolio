@@ -381,7 +381,22 @@ body {
   border-radius: 30px;
   padding: 14px;
 }
+.projectSlideContainerAnimation{
+  width: 100%;
+  display: flex;
+  background: rgba(138, 138, 138, 0.25);
+  border-radius: 26px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.4px);
+  -webkit-backdrop-filter: blur(3.4px);
+  position: absolute;
+  z-index:100;
+  top:0;
+  bottom:0;
+  left:0 ;
+  right:0;
 
+}
 .rightProject {
   display: flex;
   justify-content: center;

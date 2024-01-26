@@ -15,12 +15,16 @@ import Image from "next/image";
 import ssss from "@/assets/images/skills/skill.png";
 import TinySkills from "../ui/skills/TinySkills";
 import Contact from "./Contact";
-
+import { skillsIcons } from "@/utils/data/skills";
+ 
 const Skills = ({ skillsSectionRef }: any) => {
   return (
     <div id={Sections.SKILLS_SECTION} className="Skills" ref={skillsSectionRef}>
       <TitleSection title="My Skills" />
-      <SkillWithTitle title="Html" icon={html} />
+      {skillsIcons?.map((skill:SkillsIcons) => (
+       <SkillWithTitle id={skill?.id} title={skill?.title} icon={skill?.icon} />
+))}
+      {/* <SkillWithTitle title="Html" icon={html} />
       <SkillWithTitle title="Vue" icon={vue} />
       <SkillWithTitle title="CSS" icon={css} />
       <SkillWithTitle title="Javascript" icon={javascript} />
@@ -29,7 +33,7 @@ const Skills = ({ skillsSectionRef }: any) => {
       <SkillWithTitle title="Next" icon={next} />
       <SkillWithTitle title="Nuxt" icon={nuxt} />
       <SkillWithTitle title="tailwind" icon={tailwind} />
-      <SkillWithTitle title="Redux" icon={redux} />
+      <SkillWithTitle title="Redux" icon={redux} /> */}
       <div className="contentSkills">
         <div className="ImageContainerSkills">
           <Image src={ssss} alt="image skills" className="imageSkills" />

@@ -1,4 +1,5 @@
 import { Sections } from "@/enums/global";
+import ButtonNavbar from "../ui/buttonNavbar";
 
 const Navbar = ({ navbarScrolling, activeAnimation, handleClick }: any) => {
   const scrollToSection = (sectionId: any) => {
@@ -7,55 +8,43 @@ const Navbar = ({ navbarScrolling, activeAnimation, handleClick }: any) => {
       targetSection.scrollIntoView({ behavior: "smooth" });
     }
   };
- 
 
   return (
     <header className={`header ${navbarScrolling ? "navbarOnScrolling" : ""}`}>
       <nav className="nav">
-        <button
-          onClick={() => {
-            handleClick("animation1");
-            scrollToSection(Sections.HOME_SECTION);
-          }}
-          className={`animation  ${
-            activeAnimation === "animation1" ? "animation1" : ""
-          }`}
-        >
-          Home
-        </button>
-        <button
-          onClick={() => {
-            handleClick("animation2");
-            scrollToSection(Sections.PROJECTS_SECTION);
-          }}
-          className={`animation ${
-            activeAnimation === "animation2" ? "animation2" : ""
-          }`}
-        >
-          Projects
-        </button>
-        <button
-          onClick={() => {
-            handleClick("animation3");
-            scrollToSection(Sections.SKILLS_SECTION);
-          }}
-          className={`animation ${
-            activeAnimation === "animation3" ? "animation3" : ""
-          }`}
-        >
-          Skills
-        </button>
-        <button
-          onClick={() => {
-            handleClick("animation4");
-            scrollToSection(Sections.CONTACT_SECTION);
-          }}
-          className={`animation ${
-            activeAnimation === "animation4" ? "animation4" : ""
-          }`}
-        >
-          Contact
-        </button>
+        <ButtonNavbar
+          handleClick={handleClick}
+          scrollToSection={scrollToSection}
+          sections={Sections.HOME_SECTION}
+          animation="animation1"
+          title="Home"
+          activeAnimation={activeAnimation}
+        />
+        <ButtonNavbar
+          handleClick={handleClick}
+          scrollToSection={scrollToSection}
+          sections={Sections.PROJECTS_SECTION}
+          animation="animation2"
+          title="Projects"
+          activeAnimation={activeAnimation}
+        />
+        <ButtonNavbar
+          handleClick={handleClick}
+          scrollToSection={scrollToSection}
+          sections={Sections.SKILLS_SECTION}
+          animation="animation3"
+          title="Skills"
+          activeAnimation={activeAnimation}
+        />
+        <ButtonNavbar
+          handleClick={handleClick}
+          scrollToSection={scrollToSection}
+          sections={Sections.CONTACT_SECTION}
+          animation="animation4"
+          title="Contact"
+          activeAnimation={activeAnimation}
+        />
+
       </nav>
     </header>
   );

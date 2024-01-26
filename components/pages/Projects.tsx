@@ -17,9 +17,9 @@ const Projects = ({ projectsSectionRef }: any) => {
       <div className="billProjects">
         <Image src={bill} alt='bill' className='billProjectsEmpty' />
       </div>
-      
       <TitleSection title="My Projects" />
       <ProjectContainerView
+      
         image={EyeClinic}
         title="Eye Clinic"
         href="https://eye-clinic-77ea0.firebaseapp.com"
