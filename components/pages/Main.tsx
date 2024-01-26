@@ -1,3 +1,4 @@
+import useDeviceInfo from "@/hooks/useDeviceInfo";
 import Navbar from "./Navbar";
 import NavbarMobile from "./NavbarMobile";
 import useAnimationSmoothNavbar from "@/hooks/useAnimationSmoothNavbar";
@@ -6,7 +7,6 @@ const HomePortfolio = dynamic(() => import("./HomePortfolio"));
 const Projects = dynamic(() => import("./Projects"));
 const Skills = dynamic(() => import("./Skills"));
 const Contact = dynamic(() => import("./Contact"));
-import useDeviceInfo from '../../hooks/useDeviceInfo'
   
 const Main = () => {
   const {
