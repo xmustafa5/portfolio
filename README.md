@@ -10,7 +10,7 @@ Passionate about web development, I thrive on the opportunity to learn and grow.
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/xmustafa5/portfolio.git
 
 2. Navigate to the project directory:
 
