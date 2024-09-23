@@ -1,63 +1,65 @@
 import { Sections } from "@/enums/global";
 import Image from "next/image";
 import myImage from "@/assets/images/myImage.png";
+import myImage2 from "@/assets/images/myImage_2_-removebg-preview.png";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import useMousePosition from "@/hooks/useMousePosition";
 
 interface IProps {
   homeSectionRef?: React.RefObject<HTMLDivElement>;
+  setIsHovered: any;
+  isHovered:boolean
 }
 
-const HomePortfolio = ({ homeSectionRef }: IProps) => {
+const HomePortfolio = ({ homeSectionRef  }: IProps) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const { x, y } = useMousePosition();
+
+  const size = isHovered ? 400 : 40;
+
+
   return (
-    <section className="home" id={Sections.HOME_SECTION} ref={homeSectionRef}>
-      <div className="RightHome">
-        <div className="containerRight ">
-          <div className=" relative w-fit ">
-            <div className="titles">
-              <motion.h1
-                variants={{
-                  hidden: { opacity: 0, y: 10 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 0.5, delay: 0.25 }}
-                className="titleName"
-              >
-                Hi, I’m Mustafa Mohammed
-              </motion.h1>
-              <motion.h3
-                variants={{
-                  hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                initial="hidden"
-                animate="visible"
-                transition={{ duration: 0.5, delay: 0.425 }}
-                className="titleDeveloper"
-              >
-                front-end developer
-              </motion.h3>
-            </div>
-          </div>
-          <div className="aboutMy">
-            <p>
-              Passionate about web development, I thrive on the opportunity to
-              learn and grow. Proficient in HTML, CSS, JavaScript, React.js. I
-              constantly seek to expand my skill set and embrace new challenges
-            </p>
-          </div>
-          <div className="containerDownloadCv">
-            <a href="mustafaMohammed.pdf" className="downloadCvButton" download>
-              Download CV
-            </a>
-          </div>
+    <main className={"main h-screen"}>
+    <motion.div 
+
+      className={"mask"}
+
+      animate={{
+
+        WebkitMaskPosition: `${x - (size/2)}px ${y - (size/2)}px`,
+
+        WebkitMaskSize: `${size}px`,
+
+      }}
+
+      transition={{ type: "tween", ease: "backOut", duration:0.5}}
+
+    >
+<div className="w-full flex justify-center items-center">
+
+        <div onMouseEnter={() => {setIsHovered(true)}} onMouseLeave={() => {setIsHovered(false)}} className={"items-center p-10 justify-center w-fit flex"}>
+        <div className="w-[400px] ">
+        <Image src={myImage2} alt="myImage" className="" />
         </div>
-      </div>
-      <div className="leftHome">
-        <Image src={myImage} alt="myImage" className="myImage" />
-      </div>
-    </section>
+        </div>
+</div>
+
+    </motion.div>
+
+
+
+    <div className={"items-center p-10 justify-center flex"}>
+    <div className="w-[400px] ">
+
+        <Image src={myImage} alt="myImage" className="" />
+</div>
+    </div>
+
+
+
+  </main>
   );
 };
 export default HomePortfolio;

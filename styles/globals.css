@@ -7,8 +7,29 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  
 }
-
+:root {
+    --black-100: #16171b;
+    --white: white;
+    --red: #ff4d4d;
+    --blue-2: #92bee7;
+    --purple-100: #866cc7;
+    --black-95: #222326;
+    --qualified: #3cb652;
+    --black-40: #a2a2a4;
+    --white-5: #ffffff0d;
+    --white-10: #ffffff1a;
+    --orange: #f29871;
+    --black-80: #454549;
+    --black-90: #2d2e32;
+    --white-2-21: #ffffff05;
+    --rank-yellow: #edb513;
+    --cool-red: #f271a7;
+    --white-20: #fff3;
+    --black-50: #8a8b8d;
+    --rank-blue: #1f87e7;
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --mainColor: #ff4638;
@@ -16,10 +37,10 @@
   }
 }
 
-body {
+/* body {
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
-}
+} */
 
 @layer utilities {
   .text-balance {
@@ -65,7 +86,7 @@ body {
 }
 
 .navbarOnScrolling {
-  background: #151414;
+  background: var(--black-100);
   opacity: 0.9;
 }
 
@@ -76,7 +97,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url("https://cdn.prod.website-files.com/6674f0cdb5b7b401612cf015/6674f0cdb5b7b401612cf065_noise-50.avif");
 }
 
 .nav button {
@@ -247,18 +268,70 @@ body {
    transition-delay:0.925s;
 }
 /* home section */
+
+body{
+  background-color: #16171b;
+  color: white;
+  background-image: url("https://cdn.prod.website-files.com/6674f0cdb5b7b401612cf015/6674f0cdb5b7b401612cf065_noise-50.avif");
+  background-position: 0 0;
+  background-size: 200px 200px;
+  font-family: IBM Plex Sans, sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
+  
+}
+/* animtion */
+.main {
+  position: relative;
+  .mask, .ttt {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+    position: fixed;
+  }
+  
+  .mask {
+    /* Ensure the mask covers the entire screen */
+    mask-image: url('../assets/images/bill/billEmptyNoOpacity.png');
+    mask-repeat: no-repeat;
+    background: #ec4e39;
+    color: black;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+
+/*  */
 .home {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../assets/images/background/homeBackground.jpg");
-  background-position: center;
+ background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   padding-top: 100px;
 }
+.home::after{
+  content: "";
+  position: relative;
+  z-index: 10;
+  inset: 0;
+  background: rgb(255,70,56);
+  background: linear-gradient(225deg, rgba(255,70,56,1) 0%, rgba(113,38,32,1) 12%, rgba(15,15,15,1) 22%);
+}
+.text-color-hero-gradient {
+  background-image: linear-gradient(to right, var(#f29871), var(--red));
+  color: white;
 
+  background-clip: text;
+}
 .RightHome {
   width: 100%;
   padding-left: 50px;
@@ -329,10 +402,6 @@ body {
 /* projects section */
 .projects {
   height: 100%;
-  background-image: url("../assets//images/background/backgroundSections.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   padding: 0px 30px;
   position: relative;
 }
@@ -464,10 +533,7 @@ body {
 /* skills */
 .Skills {
   height: 100%;
-  background-image: url("../assets//images/background/backgroundSections.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -524,7 +590,6 @@ backdrop-filter: blur(6.6px);
   justify-content: center;
   padding-left: 24%;
   align-items: center;
-  background-image: url("../assets/images/background/backgroundSkills.png");
   color: white;
   border-radius: 10px;
 }
@@ -601,10 +666,6 @@ backdrop-filter: blur(6.6px);
 /* contact section */
 .contact {
   height: 100%;
-  background-image: url("../assets//images/background/backgroundSections.png");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .containerTitle {

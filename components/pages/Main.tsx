@@ -1,14 +1,20 @@
-import useDeviceInfo from "@/hooks/useDeviceInfo";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import useMousePosition from "@/hooks/useMousePosition";
 import Navbar from "./Navbar";
 import NavbarMobile from "./NavbarMobile";
+import HomePortfolio from "./HomePortfolio";
+import Projects from "./Projects";
+import Skills from "./Skills";
+import Contact from "./Contact";
+import useDeviceInfo from "@/hooks/useDeviceInfo";
 import useAnimationSmoothNavbar from "@/hooks/useAnimationSmoothNavbar";
-import dynamic from "next/dynamic";
-const HomePortfolio = dynamic(() => import("./HomePortfolio"));
-const Projects = dynamic(() => import("./Projects"));
-const Skills = dynamic(() => import("./Skills"));
-const Contact = dynamic(() => import("./Contact"));
-  
+
 const Main = () => {
+  const [isHovered, setIsHovered] = useState(false);
+  const { x, y } = useMousePosition();
+  const size = isHovered ? 400 : 40;
+
   const {
     activeAnimation,
     navbarScrolling,
@@ -18,27 +24,75 @@ const Main = () => {
     skillsSectionRef,
     contactSectionRef,
   } = useAnimationSmoothNavbar();
-  const {isMobile} = useDeviceInfo()
 
+  const { isMobile } = useDeviceInfo();
+
+  // Apply hover effect to the entire app
+  return(
+    <main className={"main"}>
+    <motion.div
+      className={"mask"}
+      animate={{
+        WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
+        WebkitMaskSize: `${size}px`,
+      }}
+      transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
+    >
+
+    </motion.div>
+
+    {isMobile ? (
+          <NavbarMobile
+            activeAnimation={activeAnimation}
+            navbarScrolling={navbarScrolling}
+            handleClick={handleClick}
+          />
+        ) : (
+          <Navbar
+            activeAnimation={activeAnimation}
+            navbarScrolling={navbarScrolling}
+            handleClick={handleClick}
+          />
+        )}
+
+        <HomePortfolio isHovered={isHovered} setIsHovered={setIsHovered} homeSectionRef={homeSectionRef} />
+        <Projects projectsSectionRef={projectsSectionRef} />
+        <Skills skillsSectionRef={skillsSectionRef} />
+        <Contact contactSectionRef={contactSectionRef} />
+  </main>
+  )
   return (
-    <div>
-      {isMobile?
-      <NavbarMobile
-      activeAnimation={activeAnimation}
-      navbarScrolling={navbarScrolling}
-      handleClick={handleClick}
-      />
-      :  
-      <Navbar
-      activeAnimation={activeAnimation}
-      navbarScrolling={navbarScrolling}
-      handleClick={handleClick}
-      />
-    }
-      <HomePortfolio homeSectionRef={homeSectionRef} />
-      <Projects projectsSectionRef={projectsSectionRef} />
-      <Skills skillsSectionRef={skillsSectionRef} />
-      <Contact contactSectionRef={contactSectionRef} />
+    <div
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <motion.div
+        className="mask"
+        animate={{
+          WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
+          WebkitMaskSize: `${size}px`,
+        }}
+        transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
+      >
+        {isMobile ? (
+          <NavbarMobile
+            activeAnimation={activeAnimation}
+            navbarScrolling={navbarScrolling}
+            handleClick={handleClick}
+          />
+        ) : (
+          <Navbar
+            activeAnimation={activeAnimation}
+            navbarScrolling={navbarScrolling}
+            handleClick={handleClick}
+          />
+        )}
+
+        <HomePortfolio homeSectionRef={homeSectionRef} />
+        <Projects projectsSectionRef={projectsSectionRef} />
+        <Skills skillsSectionRef={skillsSectionRef} />
+        <Contact contactSectionRef={contactSectionRef} />
+      </motion.div>
     </div>
   );
 };

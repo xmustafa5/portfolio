@@ -7,7 +7,7 @@ const poppins = Poppins({
 
 export default function Home() {
   return (
-    <main className={`main ${poppins.className}`}>
+    <main className={`mains ${poppins.className}`}>
       <Main />
     </main>
   );

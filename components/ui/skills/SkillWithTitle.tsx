@@ -42,17 +42,7 @@ const SkillWithTitle = ({ title, icon ,id}: IProps) => {
           `}
         >
           <h2>{title}</h2>
-          <motion.div
-          variants={{
-            hidden: {left:"0"},
-            visible: {left:id % 2 !== 0 ? '-100%' : '100%'}
-          }}
-          initial='hidden'
-          animate={SlideControls}
-          transition={{duration:0.5,ease: "easeIn", delay:id *0.14}}
-          className="skillsContainerAnimation" 
-          >
-            </motion.div>
+    
         </div>
       
     </div>

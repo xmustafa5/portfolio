@@ -32,18 +32,20 @@ function useDeviceInfo() {
         isDesktop: width > MOBILE_WIDTH,
       });
     }
-  }, [MOBILE_WIDTH, object]);
+  }, [MOBILE_WIDTH]);
 
   const debouncedHandleResize = useMemo(() => {
-    return debounce(handleResize, 100);
+    return debounce(handleResize, 2000);
   }, [handleResize]);
   useEffect(() => {
     window.addEventListener("resize", debouncedHandleResize);
-    return;
+    return () => {
+      window.removeEventListener("resize", debouncedHandleResize);
+    };
   }, [debouncedHandleResize]);
   useEffect(() => {
     debouncedHandleResize();
-  }, []);
+  }, [debouncedHandleResize]);
 
   return object;
 }

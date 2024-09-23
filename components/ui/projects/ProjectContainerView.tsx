@@ -21,16 +21,12 @@ const ProjectContainerView = ({
     <div className="pb-6 relative overflow-hidden">
       <motion.div
         key={id}
-        variants={{
-          hidden: { opacity: 0, y: 10 },
-          visible: { opacity: 1, y: 0 },
-        }}
         initial="hidden"
         animate={mainControls}
         transition={{ duration: 0.5 }}
         className="projectContainer"
       >
-        <div ref={ref} className="rightProject">
+        <div  className="rightProject">
           <div className="imageProjectContainer">
             <Image src={image} alt="project Image" className="imageProject" />
           </div>
@@ -52,16 +48,7 @@ const ProjectContainerView = ({
           </div>
         </div>
       </motion.div>
-      <motion.div
-        variants={{
-          hidden: { left: "0" },
-          visible: { left: "100%" },
-        }}
-        initial="hidden"
-        animate={SlideControls}
-        transition={{ duration: 0.5, ease: "easeIn", delay: 0.177 }}
-        className="mb-6  projectSlideContainerAnimation"
-      ></motion.div>
+   
     </div>
   );
 };
